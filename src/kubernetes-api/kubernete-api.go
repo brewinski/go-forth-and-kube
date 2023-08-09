@@ -53,3 +53,8 @@ func WatchDeployments(clientset *kubernetes.Clientset, ctx context.Context,
 
 	return watcher.ResultChan(), nil
 }
+
+func PortforwardPod(clientset *kubernetes.Clientset, ctx context.Context,
+	namespace string, podName string, port int) error {
+	return nil
+}

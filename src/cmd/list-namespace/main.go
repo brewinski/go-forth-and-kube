@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"fmt"
-	"log"
 
 	kubernetesapi "github.com/brewinski/go-forth-and-kube/src/kubernetes-api"
 	"k8s.io/client-go/kubernetes"
@@ -24,24 +23,24 @@ func main() {
 		}
 	}
 
-	podWatcher, err := kubernetesapi.WatchPods(clientset, ctx, "default")
-	if err != nil {
-		log.Default().Println(err)
-		log.Fatal(err)
-	}
+	// podWatcher, err := kubernetesapi.WatchPods(clientset, ctx, "default")
+	// if err != nil {
+	// 	log.Default().Println(err)
+	// 	log.Fatal(err)
+	// }
 
-	deploymentWatcher, err := kubernetesapi.WatchDeployments(clientset, ctx, "default")
-	if err != nil {
-		log.Default().Println(err)
-		log.Fatal(err)
-	}
+	// deploymentWatcher, err := kubernetesapi.WatchDeployments(clientset, ctx, "default")
+	// if err != nil {
+	// 	log.Default().Println(err)
+	// 	log.Fatal(err)
+	// }
 
-	for {
-		select {
-		case podEvent := <-podWatcher:
-			fmt.Printf("Pod event: %+v\n", podEvent)
-		case deploymentEvent := <-deploymentWatcher:
-			fmt.Printf("Deployment event: %+v\n", deploymentEvent)
-		}
-	}
+	// for {
+	// 	select {
+	// 	case podEvent := <-podWatcher:
+	// 		fmt.Printf("Pod event: %+v\n", podEvent)
+	// 	case deploymentEvent := <-deploymentWatcher:
+	// 		fmt.Printf("Deployment event: %+v\n", deploymentEvent)
+	// 	}
+	// }
 }
